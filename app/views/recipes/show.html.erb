@@ -1,0 +1,32 @@
+<% cache @recipe do %>
+  <div class="page container">
+    <h1><%= @recipe.title %></h1>
+
+    <div>
+      <%= image_tag @recipe.photo_url, class: "img-fluid" %>
+    </div>
+
+    <div class="recipe-section-wrapper border">
+      <div class="container fluid recipe-section">
+        <% if @recipe.tag_names.present? %>
+          <strong>Tags:</strong>
+          <% @recipe.tag_names.each do |tag_name| %>
+            <span class="badge badge-light"><%= tag_name %></span>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="container-fluid recipe-section">
+        <strong>Description:</strong>
+        <%= parse_markdown(@recipe.description) %>
+      </div>
+
+      <div class="container-fluid recipe-section">
+        <strong>Chef:</strong>
+        <%= @recipe.chef_name %>
+      </div>
+    </div>
+
+    <div class="text-center"><%= link_to "Go back", :back %></div>
+  </div>
+<% end %>

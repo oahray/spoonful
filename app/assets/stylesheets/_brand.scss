@@ -1,0 +1,8 @@
+$marley_green: #47D7AC;
+$marley_text_black: #2D2926;
+
+@mixin marley_highlight {
+  background-color: $marley_green !important;
+  color: $marley_text_black !important;
+  border-color: $marley_green !important;
+}
