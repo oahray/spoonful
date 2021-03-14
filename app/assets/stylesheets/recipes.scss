@@ -1,0 +1,34 @@
+// Place all the styles related to the Recipies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import "brand";
+
+.page-wrapper {
+  margin-top: 5em;
+  .page {
+    margin: 0 auto;
+  }
+}
+
+.recipe-list-wrapper .card {
+  margin: 1em 0.5em;
+}
+
+.recipe-section-wrapper {
+  .recipe-section {
+    margin-bottom: 0.5em;
+  }
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  @include marley_highlight;
+}
+
+.pagination .active .page-link {
+  @include marley_highlight;
+}
+
+.footer {
+  padding: 1em 0;
+}
