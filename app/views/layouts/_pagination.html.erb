@@ -1,0 +1,30 @@
+<nav aria-label="...">
+  <ul class="pagination justify-content-center">
+    <li class="page-item <%= data[:current_page] < 2 ? "disabled" : "" %>">
+      <a class="page-link" href=<%= data[:first_page_path] %>>First page</a>
+    </li>
+    <% if data[:current_page] > 2 %>
+      <li class="page-item">
+        <a class="page-link" href=<%= data[:previous_page_path] %>>
+          <%= data[:current_page] - 1 %>
+        </a>
+      </li>
+    <% end %>
+    <li class="page-item active">
+      <span class="page-link">
+        <%= data[:current_page] %>
+        <span class="sr-only">(current)</span>
+      </span>
+    </li>
+    <% if data[:current_page] < data[:last_page] - 1 %>
+      <li class="page-item">
+        <a class="page-link" href=<%= data[:next_page_path] %>>
+          <%= data[:current_page] + 1 %>
+        </a>
+      </li>
+    <% end %>
+    <li class="page-item <%= data[:current_page] == data[:last_page] ? "disabled" : "" %>">
+      <a class="page-link" href=<%= data[:last_page_path] %>>Last page</a>
+    </li>
+  </ul>
+</nav>

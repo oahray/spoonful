@@ -1,0 +1,31 @@
+<div class="page recipes-index container">
+  <div class="text-center">
+    <h1>Browse Recipes</h1>
+  </div>
+
+
+  <% if @recipes.blank? %>
+    <div class="text-center">
+      <strong>No recipes to display</strong>
+    <div>
+  <% else %>
+    <span class="text-muted">
+      <small>
+      Showing <%= @recipes.size %> of <%= @total_recipes %> recipes
+      </small>
+    <span>
+    <div class="recipe-list-wrapper row justify-content-center">
+      <% @recipes.each do |recipe|%>
+        <div class="card col-md" style="width: 16rem;">
+          <%= image_tag recipe.photo_url, { class: "card-img-top" } %>
+          <div class="card-body">
+            <h5 class="card-title"><%= recipe.title %></h5>
+            <div class="text-center"><%= link_to "View", recipe_path(recipe.id), class: "btn btn-primary" %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= render 'layouts/pagination', data: pagination_data(@total_pages) %>
+</div>
